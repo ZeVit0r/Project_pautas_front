@@ -1,0 +1,70 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    width: 100vw;
+
+    .container {
+        background: #f8f9fa;
+        border-radius: 5px;
+        height: 80vh;
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        position: absolute;
+
+        .head {
+            height: 10%;
+            background: #0081a7;
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+
+            margin-bottom: 5px;
+
+            display: flex;
+            flex-direction: row;
+
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 20px 0 20px;
+
+            .title {
+                font-size: 2rem;
+                color: white;
+                font-weight: bold;
+            }
+
+            .new-day {
+                height: 50%;
+                padding: 5px;
+                background: #98c1d9;
+                border: none;
+                border-radius: 2px;
+                color: white;
+                font-size: 0.80rem;
+                font-weight: bolder;
+
+                transition: filter 0.2s;
+
+                &:hover {
+                    filter: brightness(0.9);
+                }
+            }
+        }
+
+        .content {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
