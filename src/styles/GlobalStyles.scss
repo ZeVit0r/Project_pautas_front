@@ -39,3 +39,32 @@ strong {
 button {
     cursor: pointer;
 }
+
+.container-button {
+    
+    position: fixed;
+    right: 10%;
+    top: 10px;
+
+    display: flex;
+
+    .button-login, .button-cadastro {
+        height: 35px;
+        width: 70px;
+        margin-left: 10px;
+        padding: 5px;
+        background: #0081a7;
+        border: none;
+        border-radius: 2px;
+        color: white;
+        font-size: 0.80rem;
+        font-weight: bolder;
+
+        transition: filter 0.2s;
+
+        &:hover {
+            filter: brightness(0.9);
+        }
+    }
+    
+}

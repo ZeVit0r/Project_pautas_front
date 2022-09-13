@@ -27,7 +27,7 @@ export function ScreenJudgmentDates() {
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [date, setDate] = React.useState('');
     const [sessionName, setSessionName] = React.useState('');
-    const [judgmentDate, setJudgmentDate] = React.useState('');
+    const [judgmentDate, setJudgmentDate] = React.useState([]);
 
     function openModal() {
     setIsOpen(true);
@@ -37,14 +37,33 @@ export function ScreenJudgmentDates() {
     setIsOpen(false);
     }
 
+    async function cadastrar() {
+        const dateJug = {
+          sessionName: sessionName,
+          date: date
+        }
+    
+        await api.post('judgmentDate', dateJug, {
+          headers:{
+            'Content-Type':  'application/json',
+          }
+        })
+          .then(function (response) {
+            console.log(response);
+          });
+        
+        setIsOpen(false);
+        setSessionName('');
+        setDate('');
+    }
+
     React.useEffect(() => {
-            api.get('/judgmentDate').then(response => {
+            api.get('/judgmentDate').then( response => {
                 setJudgmentDate(response.data)
             })
-            console.log(judgmentDate);
     },[])
-
     return (
+        
         <>
             <div className="main">
                 <div className="container">
@@ -53,12 +72,13 @@ export function ScreenJudgmentDates() {
                         <button className="new-day" onClick={openModal}>Adicionar Data</button>
                     </div>
                     <div className="content">
-                        <ListDates></ListDates>
+                        <ListDates judgmentDate={judgmentDate}></ListDates>
                     </div>
                 </div>
             </div>
 
             <Modal
+                ariaHideApp={false}
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={customStyles}
@@ -70,11 +90,11 @@ export function ScreenJudgmentDates() {
                 <div className="content-modal">
                     <form className="form-date">
                         <label htmlFor="">Nome da Sessão</label>
-                        <input onChange={(e)=>{setSessionName(e)}}/>
+                        <input onChange={(e)=>{setSessionName(e.target.value)}}/>
                         <label htmlFor="">Data</label>
-                        <input onChange={(e)=>{setDate(e)}}/>
+                        <input onChange={(e)=>{setDate(e.target.value)}}/>
                     </form>
-                    <button className="button-register">Cadastrar</button>
+                    <button className="button-register" onClick={cadastrar}>Cadastrar</button>
 
                 </div>
                 

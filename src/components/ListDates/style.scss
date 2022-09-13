@@ -16,7 +16,7 @@ li {
     transition: filter 0.2s;
 
     .title {
-        width: 70%;
+        width: 60%;
         margin: 0 10px 0 10px;
 
         text-align: center;
@@ -30,24 +30,47 @@ li {
         text-align: center;
     }
 
-    button {
-        width: 10%;
+    .buttons {
+        width: 20%;
         height: 80%;
 
-        padding: 5px;
-        background: #0081a7;
-        border: none;
-        border-radius: 2px;
-        margin-right: 20px;
-        color: white;
-        font-size: 0.80rem;
-        font-weight: bolder;
+        display: flex;
+        justify-content: space-around;
+        .acessar {
+            height: 100%;
+            padding: 5px;
+            background: #0081a7;
+            border: none;
+            border-radius: 2px;
+            margin-right: 20px;
+            color: white;
+            font-size: 0.80rem;
+            font-weight: bolder;
 
-        transition: filter 0.2s;
+            transition: filter 0.2s;
 
-        &:hover {
-            filter: brightness(0.9);
+            &:hover {
+                filter: brightness(0.9);
+            }
         }
+        .excluir {
+            height: 100%;
+            padding: 5px;
+            background: #e24b10;
+            border: none;
+            border-radius: 2px;
+            margin-right: 20px;
+            color: white;
+            font-size: 0.80rem;
+            font-weight: bolder;
+
+            transition: filter 0.2s;
+
+            &:hover {
+                filter: brightness(0.9);
+            }
+        }
+        
     }
 
     .division {
